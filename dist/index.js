@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const curry$1 = fn => {
+const curry = fn => {
   const curried = (...args) => {
     if (args.length >= fn.length) {
       return fn(...args);
@@ -14,13 +14,13 @@ const curry$1 = fn => {
   return curried;
 };
 
-const add$1 = curry$1((a, b) => a + b);
+const add = curry((a, b) => a + b);
 
 // prettier-ignore
 const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
 
 // prettier-ignore
-const defaultTo = curry$1((fallback, obj) => obj || fallback);
+const defaultTo = curry((fallback, obj) => obj || fallback);
 
 const isEmpty = value => {
   switch (typeof value) {
@@ -36,22 +36,22 @@ const isEmpty = value => {
 };
 
 // prettier-ignore
-const propOr = curry$1((key, fallback, obj) => obj[key] || fallback);
+const propOr = curry((key, fallback, obj) => obj[key] || fallback);
 
 // prettier-ignore
-const reduce = curry$1((fn, initial, array) => array.reduce(fn, initial));
+const reduce = curry((fn, initial, array) => array.reduce(fn, initial));
 
 // prettier-ignore
-const split = curry$1((pattern, string) => string.split(pattern));
+const split = curry((pattern, string) => string.split(pattern));
 
 // prettier-ignore
-const dig = curry$1((keys, props) => compose(isEmpty, reduce((acc, key) => propOr(key, {})(acc), props), split('.'))(keys));
+const dig = curry((keys, props) => compose(isEmpty, reduce((acc, key) => propOr(key, {})(acc), props), split('.'))(keys));
 
 const filter = fn => array => array.filter(fn);
 
-const find = curry$1((fn, array) => array.find(fn));
+const find = curry((fn, array) => array.find(fn));
 
-const prop = curry$1((name, obj) => obj[name]);
+const prop = curry((name, obj) => obj[name]);
 
 const first = prop(0);
 
@@ -63,11 +63,11 @@ const last = arr => arr[arr.length - 1];
 
 const length = prop('length');
 
-const map = curry$1((fn, array) => array.map(fn));
+const map = curry((fn, array) => array.map(fn));
 
 const propIs = (prop, value) => obj => obj[prop] === value;
 
-const sort = curry$1((fn, array) => array.sort(fn));
+const sort = curry((fn, array) => array.sort(fn));
 
 const sum = reduce(add, 0);
 
@@ -86,8 +86,8 @@ const uniq = array => [...new Set(array)];
 
 const valueOr = fallback => obj => obj || fallback;
 
-exports.add = add$1;
-exports.curry = curry$1;
+exports.add = add;
+exports.curry = curry;
 exports.compose = compose;
 exports.defaultTo = defaultTo;
 exports.dig = dig;
