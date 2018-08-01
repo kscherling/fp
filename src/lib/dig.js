@@ -1,4 +1,4 @@
-import { compose } from 'recompose'
+import compose from './compose'
 import curry from './curry'
 import isEmpty from './isEmpty'
 import propOr from './propOr'

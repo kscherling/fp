@@ -15,6 +15,5 @@ export default {
       plugins: ['external-helpers', 'transform-class-properties']
     }),
     commonjs()
-  ],
-  external: ['react', 'react-dom', 'react-pose', 'prop-types']
+  ]
 }
