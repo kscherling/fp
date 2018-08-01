@@ -1,9 +1,9 @@
 import { compose } from 'recompose'
-import curry from 'lib/fp/curry'
-import propOr from 'lib/fp/propOr'
-import split from 'lib/fp/split'
-import isEmpty from 'lib/fp/isEmpty'
-import reduce from 'lib/fp/reduce'
+import curry from './curry'
+import isEmpty from './isEmpty'
+import propOr from './propOr'
+import reduce from './reduce'
+import split from './split'
 
 // prettier-ignore
 const dig = curry(

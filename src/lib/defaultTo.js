@@ -1,4 +1,4 @@
-import curry from 'lib/fp/curry'
+import curry from './curry'
 
 // prettier-ignore
 const defaultTo = curry(
