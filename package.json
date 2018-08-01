@@ -2,8 +2,8 @@
   "name": "fp",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "main": "dist/index.js",
-  "files": ["dist"],
   "scripts": {
     "build": "rollup --config",
     "build:watch": "yarn run build --watch",
