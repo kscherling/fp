@@ -86,6 +86,12 @@ const uniq = array => [...new Set(array)];
 
 const valueOr = fallback => obj => obj || fallback;
 
+const shallowMerge = obj => (...objs) => Object.assign({}, obj, ...objs);
+
+const wrapObj = key => val => ({ [key]: val });
+
+const entries = obj => Object.entries(obj);
+
 exports.add = add;
 exports.curry = curry;
 exports.compose = compose;
@@ -111,3 +117,6 @@ exports.toArray = toArray;
 exports.trace = trace;
 exports.uniq = uniq;
 exports.valueOr = valueOr;
+exports.shallowMerge = shallowMerge;
+exports.wrapObj = wrapObj;
+exports.entries = entries;
