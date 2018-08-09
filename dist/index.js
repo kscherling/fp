@@ -98,6 +98,8 @@ const map = curry((fn, array) => array.map(fn));
 
 const propIs = (prop, value) => obj => obj[prop] === value;
 
+const reverse = arr => [...arr].reverse();
+
 const sort = curry((fn, array) => array.sort(fn));
 
 const sum = reduce(add, 0);
@@ -142,6 +144,7 @@ exports.prop = prop;
 exports.propIs = propIs;
 exports.propOr = propOr;
 exports.reduce = reduce;
+exports.reverse = reverse;
 exports.sort = sort;
 exports.split = split;
 exports.sum = sum;
