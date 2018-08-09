@@ -19,6 +19,37 @@ const add = curry((a, b) => a + b);
 // prettier-ignore
 const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
 
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+const cloneObj = obj => _extends({}, obj);
+
+const deepMerge = curry((_target, _source) => {
+  const source = cloneObj(_source);
+  const target = cloneObj(_target);
+
+  for (let key of Object.keys(source)) {
+    if (source[key] instanceof Object) {
+      Object.assign(source[key], deepMerge(target[key], source[key]));
+    }
+  }
+
+  Object.assign(target, source);
+
+  return target;
+});
+
 // prettier-ignore
 const defaultTo = curry((fallback, obj) => obj || fallback);
 
@@ -72,7 +103,7 @@ const sort = curry((fn, array) => array.sort(fn));
 const sum = reduce(add, 0);
 
 // prettier-ignore
-const toArray = string => Array.isArray(string) ? string : [string];
+const toArray$1 = string => Array.isArray(string) ? string : [string];
 
 const trace = curry((msg, arg) => {
   if (process.env.NODE_ENV !== 'production') {
@@ -95,6 +126,7 @@ const entries = obj => Object.entries(obj);
 exports.add = add;
 exports.curry = curry;
 exports.compose = compose;
+exports.deepMerge = deepMerge;
 exports.defaultTo = defaultTo;
 exports.dig = dig;
 exports.filter = filter;
@@ -113,7 +145,7 @@ exports.reduce = reduce;
 exports.sort = sort;
 exports.split = split;
 exports.sum = sum;
-exports.toArray = toArray;
+exports.toArray = toArray$1;
 exports.trace = trace;
 exports.uniq = uniq;
 exports.valueOr = valueOr;
