@@ -1,6 +1,7 @@
 export { default as add } from './lib/add'
 export { default as curry } from './lib/curry'
 export { default as compose } from './lib/compose'
+export { default as deepMerge } from './lib/deepMerge'
 export { default as defaultTo } from './lib/defaultTo'
 export { default as dig } from './lib/dig'
 export { default as filter } from './lib/filter'
