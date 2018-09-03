@@ -24,12 +24,5 @@
     "semi": false,
     "singleQuote": true,
     "bracketSpacing": true
-  },
-  "babel": {
-    "env": {
-      "test": {
-        "plugins": ["emotion"]
-      }
-    }
   }
 }

@@ -1,5 +1,7 @@
 export { default as add } from './lib/add'
+export { default as assign } from './lib/assign'
 export { default as curry } from './lib/curry'
+export { default as cloneObj } from './lib/cloneObj'
 export { default as compose } from './lib/compose'
 export { default as deepMerge } from './lib/deepMerge'
 export { default as defaultTo } from './lib/defaultTo'

@@ -1,3 +1,3 @@
-const valueOr = fallback => obj => obj || fallback
+const valueOr = fallback => val => val || fallback
 
 export default valueOr

@@ -16,6 +16,10 @@ const curry = fn => {
 
 const add = curry((a, b) => a + b);
 
+const assign = curry((a, b) => Object.assign({}, a, b));
+
+const cloneObj = obj => Object.assign({}, obj);
+
 // prettier-ignore
 const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
 
@@ -33,11 +37,11 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-const cloneObj = obj => _extends({}, obj);
+const cloneObj$1 = obj => _extends({}, obj);
 
 const deepMerge = curry((_target, _source) => {
-  const source = cloneObj(_source);
-  const target = cloneObj(_target);
+  const source = cloneObj$1(_source);
+  const target = cloneObj$1(_target);
 
   for (let key of Object.keys(source)) {
     if (source[key] instanceof Object) {
@@ -117,7 +121,7 @@ const trace = curry((msg, arg) => {
 
 const uniq = array => [...new Set(array)];
 
-const valueOr = fallback => obj => obj || fallback;
+const valueOr = fallback => val => val || fallback;
 
 const shallowMerge = obj => (...objs) => Object.assign({}, obj, ...objs);
 
@@ -126,7 +130,9 @@ const wrapObj = key => val => ({ [key]: val });
 const entries = obj => Object.entries(obj);
 
 exports.add = add;
+exports.assign = assign;
 exports.curry = curry;
+exports.cloneObj = cloneObj;
 exports.compose = compose;
 exports.deepMerge = deepMerge;
 exports.defaultTo = defaultTo;
